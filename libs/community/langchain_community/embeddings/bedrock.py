@@ -125,8 +125,7 @@ class BedrockEmbeddings(BaseModel, Embeddings):
             if "input_type" not in input_body.keys():
                 input_body["input_type"] = "search_document"
             input_body["texts"] = [text]
-        else:
-            # includes common provider == "amazon"
+        elif provider == "amazon":
             input_body["inputText"] = text
         body = json.dumps(input_body)
 
